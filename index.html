@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- header -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/contenido.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/datatable.css">
+    <link rel="stylesheet" href="css/fuentes.css">
+    <link rel="stylesheet" href="css/catalogoFuentes.css">
+
+
+    <title>
+      Explorador de información
+    </title>    
+  </head>
+  <body style="margin: 0px !important;">
+
+
+    <!--Header de la aplicación -->
+    <header>
+      <div class="grupo-izquierdo">
+        <img src="imagenes/logo1.png" alt="Banco de Mexico" class="logo" />
+      </div>
+      <div class="usuario">
+        <!-- Bonones de accion -->
+        <div class="botones-header desktop-only botones">
+          <a id="home" href="#" data-tooltip="Regresar a inicio" data-tooltip-position="bottom">
+            <img src="imagenes/home.svg" data-imgtype="d" width="24" height="24">
+          </a>
+          <a href="#" data-tooltip="Cerrar sesión" data-tooltip-position="bottom">
+            <img src="imagenes/salir.svg" alt="Cerrar sesión" data-imgtype="d" width="24" height="24">
+          </a>
+        </div>
+        <!-- Informacion de usuario -->
+
+        <div class="usuario-main">
+          <div class="info">
+            <div class="nombre-usuario">Luis Antonio Hernández De La Luz</div>
+            <div class="nombre-usuario">B16847 - 002001</div>
+          </div>
+          <img src="imagenes/b16847.png" alt="Usuario" class="foto-usuario">
+        </div>
+      </div>
+    </header>
+
+
+    <!-- Contenido de la aplicacion -->
+    <div class="contenedor-app" style="padding:0px;">
+      <div class="layout-dashboard">
+        
+        <!-- Menu -->
+        <aside class="columna-menu" id="columnaMenu">
+          <!-- Buscador del arbol tematico -->
+          <div class="menu-header-fijo">
+            <!-- Buscador y boton de cierre -->
+            <div class="menu-header-top">
+              <div class="buscador-menu">
+                <input type="text" id="buscador-fuentes" placeholder="Buscar fuente..." />
+              </div>
+              <img src="imagenes/cerrarPanelBlanco.svg" alt="Cerrar menú" class="icono-cerrar-menu" id="btnOcultarMenu" data-tooltip="Ocultar árbol" data-tooltip-position="right" />
+            </div>
+            <!-- Botones de opciones sobre el arbol -->
+            <div class="opciones-menu" id="opcionesMenu">
+              <!-- Expandir el arbol -->
+              <div id="btn-abrir-todo-config" class="opcion-btn" data-tooltip="Expandir árbol" data-tooltip-position="top">
+                <img src="imagenes/add.svg">
+                Agregar fuente
+              </div>              
+            </div>
+          </div>
+          <!-- Arbol de navegación -->
+          <div class="menu-scroll">
+            <div class="fuentes-container">
+              <!-- Fuente activa -->
+              <div class="fuente-card activa" data-fuente="indicadores">
+                <div class="fuente-header">
+                  <div class="fuente-avatar">
+                    <img src="imagenes/fuente.png" alt="Banco Central">
+                  </div>
+                  <div class="fuente-info">
+                    <div class="fuente-nombre">Indicadores Financieros</div>
+                  </div>
+                </div>
+                <div class="fuente-acciones">
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                  </label>
+                  <button class="btn-fuente ver" title="Ver fuente">
+                    <img src="imagenes/ver.svg">
+                  </button>
+                  <button class="btn-fuente metadata" data-fuente="Sistema de Indicadores Financieros">
+                      <img src="imagenes/diccionario.svg" alt="Ver diccionario de datos">
+                  </button>
+                  <button class="btn-fuente eliminar" title="Eliminar fuente">
+                    <img src="imagenes/eliminar.svg">
+                  </button>
+                </div>
+              </div>
+              <!-- Fuente inactiva -->
+              <div class="fuente-card" data-fuente="mercados">
+                <div class="fuente-header">
+                  <div class="fuente-avatar">
+                    <img src="imagenes/fuente.png" alt="Banco Central">
+                  </div>
+                  <div class="fuente-info">
+                    <div class="fuente-nombre">Mercados Financieros</div>
+                  </div>
+                </div>
+                <div class="fuente-acciones">
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                  </label>
+                  <button class="btn-fuente ver">
+                    <img src="imagenes/ver.svg">
+                  </button>
+                  <button class="btn-fuente metadata" data-fuente="Sistema de Indicadores Financieros">
+                      <img src="imagenes/diccionario.svg" alt="Ver diccionario de datos">
+                  </button>
+                  <button class="btn-fuente eliminar">
+                    <img src="imagenes/eliminar.svg">
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+
+
+        <!-- Contenido del tablero -->
+        <main class="columna-contenido" id="columnaContenido">
+          <div class="contenido-header-fijo">
+            <img src="imagenes/abrirPanelBlanco.svg" class="icono-mostrar-menu" id="btnMostrarMenuContenido" data-tooltip="Mostrar árbol" data-tooltip-position="right" />
+            <!-- Título centrado -->
+            <div class="titulo-contenido"> Explorador de información </div>
+          </div>
+          <!-- Contenido del tablero -->
+          <div class="contenido-principal">
+            
+            <div class="chat-orion">
+              
+              <!-- Zona de mensajes -->
+              <div class="chat-mensajes" id="chatMensajes">
+                <!-- Mensaje ORION inicial -->
+                <div class="mensaje orion">
+                  <div class="avatar avatar-orion">ORION</div>
+                  <div class="burbuja">
+                    <div class="autor">ORION</div>
+                    <div class="texto"> Hola 👋 Soy ORION. Puedo ayudarte a explorar información, responder preguntas o analizar datos. </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Caja de escritura -->
+              <div class="chat-input">
+                <input type="text" id="inputPrompt" placeholder="Escribe un mensaje..." />
+                <button id="btnEnviar">Enviar</button>
+              </div>
+            </div>
+
+          </div>
+        </main>
+
+
+
+
+
+      </div>
+      <!-- Fin de contenido -->
+    </div>
+
+    
+    <!-- Modal de informacion -->
+    <div class="modal-overlay" id="modalCatalogoFuentes">
+    <div class="modal-contenido">
+        <div class="modal-header">
+            <h3>Catálogo de fuentes financieras</h3>
+            <span class="modal-cerrar" id="cerrarModalFuentes">&times;</span>
+        </div>
+
+        <div class="modal-body">
+            <table class="tabla-orion">
+                <thead>
+                    <tr>
+                        <th>Nombre de la fuente</th>
+                        <th>Descripción</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaCatalogoFuentes">
+                    <tr>
+                        <td>Sistema de Indicadores Financieros</td>
+                        <td>Tasas, inflación y agregados monetarios</td>
+                        <td>
+                            <button class="btn-usar-fuente" data-fuente="Sistema de Indicadores Financieros">
+                                Usar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mercado de Valores</td>
+                        <td>Índices bursátiles y rendimientos</td>
+                        <td>
+                            <button class="btn-usar-fuente" data-fuente="Mercado de Valores">
+                                Usar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Reservas Internacionales</td>
+                        <td>Saldo y variaciones semanales</td>
+                        <td>
+                            <button class="btn-usar-fuente" data-fuente="Reservas Internacionales">
+                                Usar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- Librerias externas -->
+    <script src="js/librerias/jquery-3.7.1.min.js"></script>
+    <script type='text/javascript' src='js/librerias/jquery-ui.min.js' charset="UTF-8"></script>
+    <link rel="stylesheet" href="js/librerias/jquery-ui.css" />
+    <!-- Script locales -->
+    <script src="js/layout.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/datos.js"></script>
+    <script src="js/fuentes.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+
+
+  </body>
+</html>
