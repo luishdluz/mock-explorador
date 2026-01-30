@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/datatable.css">
     <link rel="stylesheet" href="css/fuentes.css">
     <link rel="stylesheet" href="css/catalogoFuentes.css">
+    <link rel="stylesheet" href="css/tooltip.css">
 
 
     <title>
@@ -62,12 +63,12 @@
               <div class="buscador-menu">
                 <input type="text" id="buscador-fuentes" placeholder="Buscar fuente..." />
               </div>
-              <img src="imagenes/cerrarPanelBlanco.svg" alt="Cerrar menú" class="icono-cerrar-menu" id="btnOcultarMenu" data-tooltip="Ocultar árbol" data-tooltip-position="right" />
+              <img src="imagenes/cerrarPanelBlanco.svg" alt="Cerrar menú" class="icono-cerrar-menu" id="btnOcultarMenu" data-tooltip="Ocultar fuentes" data-tooltip-position="right" />
             </div>
             <!-- Botones de opciones sobre el arbol -->
             <div class="opciones-menu" id="opcionesMenu">
               <!-- Expandir el arbol -->
-              <div id="btn-abrir-todo-config" class="opcion-btn" data-tooltip="Expandir árbol" data-tooltip-position="top">
+              <div id="btn-abrir-todo-config" class="opcion-btn">
                 <img src="imagenes/add.svg">
                 Agregar fuente
               </div>              
@@ -91,13 +92,13 @@
                     <input type="checkbox" checked>
                     <span class="slider"></span>
                   </label>
-                  <button class="btn-fuente ver" title="Ver fuente">
+                  <button class="btn-fuente ver" data-tooltip="Previsualizar fuente" data-tooltip-position="top">
                     <img src="imagenes/ver.svg">
                   </button>
-                  <button class="btn-fuente metadata" data-fuente="Sistema de Indicadores Financieros">
+                  <button class="btn-fuente metadata" data-fuente="Sistema de Indicadores Financieros" data-tooltip="Ver diccionario de datos" data-tooltip-position="top">
                       <img src="imagenes/diccionario.svg" alt="Ver diccionario de datos">
                   </button>
-                  <button class="btn-fuente eliminar" title="Eliminar fuente">
+                  <button class="btn-fuente eliminar" data-tooltip="Remover fuente" data-tooltip-position="top">
                     <img src="imagenes/eliminar.svg">
                   </button>
                 </div>
@@ -118,13 +119,13 @@
                     <input type="checkbox">
                     <span class="slider"></span>
                   </label>
-                  <button class="btn-fuente ver">
+                  <button class="btn-fuente ver" data-tooltip="Previsualizar fuente" data-tooltip-position="top">
                     <img src="imagenes/ver.svg">
                   </button>
-                  <button class="btn-fuente metadata" data-fuente="Sistema de Indicadores Financieros">
+                  <button class="btn-fuente metadata" data-fuente="Sistema de Indicadores Financieros" data-tooltip="Ver diccionario de datos" data-tooltip-position="top">
                       <img src="imagenes/diccionario.svg" alt="Ver diccionario de datos">
                   </button>
-                  <button class="btn-fuente eliminar">
+                  <button class="btn-fuente eliminar" data-tooltip="Remover fuente" data-tooltip-position="top">
                     <img src="imagenes/eliminar.svg">
                   </button>
                 </div>
@@ -139,7 +140,7 @@
         <!-- Contenido del tablero -->
         <main class="columna-contenido" id="columnaContenido">
           <div class="contenido-header-fijo">
-            <img src="imagenes/abrirPanelBlanco.svg" class="icono-mostrar-menu" id="btnMostrarMenuContenido" data-tooltip="Mostrar árbol" data-tooltip-position="right" />
+            <img src="imagenes/abrirPanelBlanco.svg" class="icono-mostrar-menu" id="btnMostrarMenuContenido" data-tooltip="Mostrar fuentes" data-tooltip-position="right" />
             <!-- Título centrado -->
             <div class="titulo-contenido"> Explorador de información </div>
           </div>
@@ -240,6 +241,7 @@
     <script src="js/chat.js"></script>
     <script src="js/datos.js"></script>
     <script src="js/fuentes.js"></script>
+    <script src="js/tooltip.js"></script>
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
 
