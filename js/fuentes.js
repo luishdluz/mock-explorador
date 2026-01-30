@@ -209,13 +209,13 @@ function agregarFuenteAlMenu(nombreFuente) {
                     <input type="checkbox">
                     <span class="slider"></span>
                   </label>
-                  <button class="btn-fuente ver">
+                  <button class="btn-fuente ver" data-tooltip="Previsualizar fuente" data-tooltip-position="top">
                     <img src="imagenes/ver.svg">
                   </button>
-                  <button class="btn-fuente metadata" data-fuente="${nombreFuente}">
+                  <button class="btn-fuente metadata" data-fuente="${nombreFuente}" data-tooltip="Ver diccionario de datos" data-tooltip-position="top">
                       <img src="imagenes/diccionario.svg" alt="Ver diccionario de datos">
                   </button>
-                  <button class="btn-fuente eliminar">
+                  <button class="btn-fuente eliminar" data-tooltip="Remover fuente" data-tooltip-position="top">
                     <img src="imagenes/eliminar.svg">
                   </button>
                 </div>
