@@ -1,0 +1,145 @@
+/* =========================
+   CONTENEDOR TABLA ORION
+========================= */
+.orion-tabla-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 10px;
+    min-width: 900px;
+}
+
+/* =========================
+   TABLA
+========================= */
+.orion-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Header */
+.orion-tabla thead {
+    background: #20385a;
+    color: #ffffff;
+}
+
+.orion-tabla th,
+.orion-tabla td {
+    padding: 10px 12px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.orion-tabla th {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* Filas */
+.orion-tabla tbody tr:nth-child(even) {
+    background: #f1f5f9;
+}
+
+.orion-tabla tbody tr:hover {
+    background: #e0f2f1;
+}
+
+/* =========================
+   FILTROS
+========================= */
+.filtros-tabla {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.filtros-tabla input {
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    outline: none;
+}
+
+.filtros-tabla input:focus {
+    border-color: #04b3bb;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 768px) {
+    .orion-tabla th,
+    .orion-tabla td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+
+/* Fila de filtros */
+.orion-tabla thead tr.filtros th {
+    background: #f1f5f9;
+    padding: 6px;
+}
+
+.orion-tabla thead tr.filtros input {
+    width: 90%;
+    padding: 5px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    outline: none;
+}
+
+.orion-tabla thead tr.filtros input:focus {
+    border-color: #04b3bb;
+}
+
+.datatable-financiero {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.datatable-financiero th,
+.datatable-financiero td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.datatable-financiero thead {
+    background: #f5f7fa;
+}
+
+.fila-filtros input {
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.mensaje.ancho-completo .burbuja {
+    min-width: 900px;
+}
+
+.mensaje.ancho-completo {
+    justify-content: flex-start;
+}
+
+.mensaje.ancho-completo .texto {
+    width: 100%;
+}
+
+#grafica-financiera {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
