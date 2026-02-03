@@ -1,13 +1,43 @@
+//$(document).on('change', '.switch input', function () {
+
+  //  const card = $(this).closest('.fuente-card');
+
+    //if (this.checked) {
+      //  card.addClass('activa');
+        //console.log('Fuente activada:', card.data('fuente'));
+    //} else {
+      //  card.removeClass('activa');
+        //console.log('Fuente desactivada:', card.data('fuente'));
+    //}
+//});
+
 $(document).on('change', '.switch input', function () {
 
-    const card = $(this).closest('.fuente-card');
+    const $switchActual = $(this);
+    const $cardActual = $switchActual.closest('.fuente-card');
 
     if (this.checked) {
-        card.addClass('activa');
-        console.log('Fuente activada:', card.data('fuente'));
+
+        // Apagar todas las demás fuentes
+        $('.fuente-card').not($cardActual).each(function () {
+            $(this)
+                .removeClass('activa')
+                .find('.switch input')
+                .prop('checked', false);
+        });
+
+        // Activar solo esta
+        $cardActual.addClass('activa');
+
+        console.log('Fuente activada:', $cardActual.data('fuente'));
+
+        orionNotificarFuenteActiva($cardActual.data('fuente'));
+
+
     } else {
-        card.removeClass('activa');
-        console.log('Fuente desactivada:', card.data('fuente'));
+        // Opcional: permitir apagarla
+        $cardActual.removeClass('activa');
+        console.log('Fuente desactivada:', $cardActual.data('fuente'));
     }
 });
 
@@ -223,4 +253,23 @@ function agregarFuenteAlMenu(nombreFuente) {
     `;
 
     menuScroll.insertAdjacentHTML('beforeend', cardFuente);
+}
+
+
+function orionNotificarFuenteActiva(nombreFuente) {
+
+    chatMensajes.insertAdjacentHTML('beforeend', `
+        <div class="mensaje orion">
+            <div class="avatar avatar-orion">ORION</div>
+            <div class="burbuja">
+                <div class="autor">ORION</div>
+                <div class="texto">
+                    🔌 La fuente <strong>${nombreFuente}</strong> ha sido activada.<br>
+                    A partir de ahora, todas las consultas usarán esta fuente de información.
+                </div>
+            </div>
+        </div>
+    `);
+
+    scrollChat();
 }
