@@ -226,3 +226,85 @@
 .btn-fuente.metadata:hover {
     background: rgba(32, 56, 90, 0.5);
 }
+
+/* Contenedor del Prompt */
+.llm-prompt-container {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.llm-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.llm-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilo del Textarea */
+#inputBusquedaLLM {
+    width: 95%;
+    padding: 12px;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    resize: none;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+#inputBusquedaLLM:focus {
+    outline: none;
+    border-color: #004a99; /* Azul institucional */
+}
+
+/* Botón de búsqueda */
+.btn-llm-search {
+    background-color: #004a99;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    align-self: flex-end;
+    transition: background 0.3s;
+}
+
+.btn-llm-search:hover {
+    background-color: #003366;
+}
+
+/* Otros detalles */
+.llm-hint {
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.resultados-titulo {
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Spinner simple */
+.spinner-chase {
+    width: 30px;
+    height: 30px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #004a99;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
