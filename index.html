@@ -179,55 +179,50 @@
       <!-- Fin de contenido -->
     </div>
 
-    
-    <!-- Modal de informacion -->
+    <!-- Modal de información -->
     <div class="modal-overlay" id="modalCatalogoFuentes">
     <div class="modal-contenido">
         <div class="modal-header">
-            <h3>Catálogo de fuentes financieras</h3>
+            <h3>Buscador de fuentes</h3>
             <span class="modal-cerrar" id="cerrarModalFuentes">&times;</span>
         </div>
 
-        <div class="modal-body">
-            <table class="tabla-orion">
-                <thead>
-                    <tr>
-                        <th>Nombre de la fuente</th>
-                        <th>Descripción</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaCatalogoFuentes">
-                    <tr>
-                        <td>Sistema de Indicadores Financieros</td>
-                        <td>Tasas, inflación y agregados monetarios</td>
-                        <td>
-                            <button class="btn-usar-fuente" data-fuente="Sistema de Indicadores Financieros">
-                                Usar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Mercado de Valores</td>
-                        <td>Índices bursátiles y rendimientos</td>
-                        <td>
-                            <button class="btn-usar-fuente" data-fuente="Mercado de Valores">
-                                Usar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Reservas Internacionales</td>
-                        <td>Saldo y variaciones semanales</td>
-                        <td>
-                            <button class="btn-usar-fuente" data-fuente="Reservas Internacionales">
-                                Usar
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="modal-body">
+    <div class="llm-prompt-container">
+        <label for="inputBusquedaLLM" class="llm-label">¿Qué información quieres consultar?</label>
+        <div class="llm-input-group">
+            <textarea id="inputBusquedaLLM" 
+                      placeholder="Ej: Necesito las fuentes que contengan información sobre la inflación y variaciones del peso..." 
+                      rows="2"></textarea>
+            <button id="btnConsultarFuente" class="btn-llm-search">
+                <i class="fas fa-magic"></i> Buscar fuentes
+            </button>
         </div>
+    </div>
+
+    <div id="loaderLLM" class="llm-loading-state" style="display: none;">
+        <div class="spinner-chase"></div>
+    </div>
+
+    <div id="contenedorResultados" style="display: none; margin-top: 20px;">
+        <h4 class="resultados-titulo">Fuentes encontradas:</h4>
+        <table class="tabla-orion">
+            <thead>
+                <tr>
+                    <th>Nombre de la fuente</th>
+                    <th>Descripción</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="tablaCatalogoFuentes"></tbody>
+        </table>
+    </div>
+
+    <div id="mensajeErrorLLM" class="llm-error-alert" style="display: none;">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>No se fuentes realacionadas...</span>
+    </div>
+</div>
     </div>
 </div>
 
