@@ -273,3 +273,70 @@ function orionNotificarFuenteActiva(nombreFuente) {
 
     scrollChat();
 }
+
+
+$(document).ready(function() {
+    // Datos maestros para simular la búsqueda
+    const fuentesMaestras = [
+        { nombre: "Sistema de Indicadores Financieros", desc: "Tasas, inflación y agregados monetarios", tags: ["tasas", "inflacion", "monetarios", "ipc", "precios"] },
+        { nombre: "Mercado de Valores", desc: "Índices bursátiles y rendimientos", tags: ["valores", "bolsa", "acciones", "rendimientos", "indices", "bmv"] },
+        { nombre: "Reservas Internacionales", desc: "Saldo y variaciones semanales", tags: ["reservas", "dolares", "oro", "divisas"] }
+    ];
+
+    // Función para quitar acentos y caracteres especiales
+    const normalizarTexto = (texto) => {
+        return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    };
+
+    $('#btnConsultarFuente').on('click', function() {
+        const queryOriginal = $('#inputBusquedaLLM').val().trim();
+        const queryLimpia = normalizarTexto(queryOriginal);
+        
+        if (queryLimpia === "") return;
+
+        // Limpiar interfaz
+        $('#contenedorResultados, #mensajeErrorLLM').hide();
+        $('#tablaCatalogoFuentes').empty();
+        $('#loaderLLM').show();
+        
+        setTimeout(function() {
+            $('#loaderLLM').hide();
+
+            // 2. Búsqueda flexible
+            const resultados = fuentesMaestras.filter(f => {
+                const nombreLimpio = normalizarTexto(f.nombre);
+                const descLimpia = normalizarTexto(f.desc);
+                
+                // Verifica si la query está en nombre, descripción o en los tags
+                return nombreLimpio.includes(queryLimpia) || 
+                       descLimpia.includes(queryLimpia) ||
+                       f.tags.some(tag => queryLimpia.includes(normalizarTexto(tag)));
+            });
+
+            if (resultados.length > 0) {
+                resultados.forEach(f => {
+                    const row = `
+                        <tr>
+                            <td>${f.nombre}</td>
+                            <td>${f.desc}</td>
+                            <td>
+                                <button class="btn-usar-fuente" data-fuente="${f.nombre}">
+                                    Usar
+                                </button>
+                            </td>
+                        </tr>`;
+                    $('#tablaCatalogoFuentes').append(row);
+                });
+                $('#contenedorResultados').fadeIn();
+            } else {
+                $('#mensajeErrorLLM').fadeIn();
+            }
+        }, 1000); 
+    });
+
+    // Resetear modal al cerrar (opcional)
+    $('#cerrarModalFuentes').on('click', function() {
+        $('#inputBusquedaLLM').val('');
+        $('#contenedorResultados, #mensajeErrorLLM').hide();
+    });
+});
